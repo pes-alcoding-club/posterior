@@ -1,0 +1,44 @@
+{
+  "name": "posterior",
+  "version": "1.0.0",
+  "description": "Backend for the Alcoding Web portal",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pes-alcoding-club/posterior.git"
+  },
+  "keywords": [
+    "alcoding",
+    "backend"
+  ],
+  "author": "pes-alcoding-club",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/temanisparsh/posterior/issues"
+  },
+  "homepage": "https://github.com/temanisparsh/posterior#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.22",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.10",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "morgan": "^1.10.0",
+    "supertest": "^4.0.2"
+  }
+}
