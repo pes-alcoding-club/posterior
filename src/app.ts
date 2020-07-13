@@ -13,29 +13,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 app.listen(config.PORT, (err: any) => {
-  if (err) {
-    console.error(`Unable to start app. Found error: ${err.message}`);
-    return;
-  }
-  console.error(`Server Running at PORT: ${config.PORT}`);
+	if (err) {
+		console.error(`Unable to start app. Found error: ${err.message}`);
+		return;
+	}
+	console.error(`Server Running at PORT: ${config.PORT}`);
 });
 
 app.use('/api/auth', AuthRouter);
 
 mongoose.set('useCreateIndex', true);
 mongoose.connect(config.mongoUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+	useNewUrlParser: true,
+	useUnifiedTopology: true
 });
 mongoose.Promise = global.Promise;
 mongoose.connection.on(
-  'error',
-  console.error.bind(console, 'MongoDB Connection Error...')
+	'error',
+	console.error.bind(console, 'MongoDB Connection Error...')
 );
 
 app.use(function (err: any, res: Response) {
-  res.status(err.status || 500);
-  res.end(err.message);
+	res.status(err.status || 500);
+	res.end(err.message);
 });
 
 module.exports = app;

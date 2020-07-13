@@ -4,9 +4,9 @@ const router: Router = Router();
 
 import { verifyUser } from '../middleware/auth.middleware';
 import {
-  getUser,
-  loginUser,
-  registerUser
+	getUser,
+	loginUser,
+	registerUser
 } from '../controllers/auth.controller';
 
 // @route /api/auth

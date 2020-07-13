@@ -15,35 +15,36 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 const opts = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.secretKey
+	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+	secretOrKey: config.secretKey
 };
 
 export const jwtPasport = passport.use(
-  new JwtStrategy(opts, (jwt_payload: any, done: any) => {
-    User.findOne({ _id: jwt_payload.user }, (err, user) => {
-      if (err) {
-        return done(err, false);
-      }
-      if (user) {
-        return done(null, user);
-      }
-      return done(null, false);
-    });
-  })
+	new JwtStrategy(opts, (jwt_payload: any, done: any) => {
+		User.findOne({ _id: jwt_payload.user }, (err, user) => {
+			if (err) {
+				return done(err, false);
+			}
+			if (user) {
+				return done(null, user);
+			}
+			return done(null, false);
+		});
+	})
 );
 
 export const verifyUser = passport.authenticate('jwt', { session: false });
 
 export const verifyAdmin = function (
-  params: any,
-  err: any,
-  next: NextFunction
+	params: any,
+	err: any,
+	next: NextFunction
 ) {
-  if (params.user.isAdmin) {
-    return next();
-  }
-  err.message = 'Only administrators are authorized to perform this operation.';
-  err.status = 403;
-  return next(err);
+	if (params.user.isAdmin) {
+		return next();
+	}
+	err.message =
+		'Only administrators are authorized to perform this operation.';
+	err.status = 403;
+	return next(err);
 };

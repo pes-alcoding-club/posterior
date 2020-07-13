@@ -6,8 +6,8 @@ import User, { IUser } from '../models/user.model';
  */
 
 export const getUserService = async (userId: string) => {
-  const user: IUser | null = await User.findById(userId);
-  return user;
+	const user: IUser | null = await User.findById(userId);
+	return user;
 };
 
 /**
@@ -19,15 +19,15 @@ export const getUserService = async (userId: string) => {
  */
 
 export const createUserService = async (
-  username: string,
-  password: string,
-  email: string,
-  name: string
+	username: string,
+	password: string,
+	email: string,
+	name: string
 ) => {
-  const user: IUser | null = await User.register(
-    new User({ username: username, email: email }),
-    password
-  );
-  user.name = name;
-  return await user.save();
+	const user: IUser | null = await User.register(
+		new User({ username: username, email: email }),
+		password
+	);
+	user.name = name;
+	return await user.save();
 };
