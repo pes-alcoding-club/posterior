@@ -1,9 +1,22 @@
 import User, { IUser } from '../models/user.model';
 
+/**
+ * Return User info
+ * @param {string} userId - _id of the user
+ */
+
 export const getUserService = async (userId: string) => {
   const user: IUser | null = await User.findById(userId);
   return user;
 };
+
+/**
+ * Register a new user in the DB
+ * @param {string} username
+ * @param {string} password
+ * @param {string} email
+ * @param {string} name
+ */
 
 export const createUserService = async (
   username: string,
@@ -17,11 +30,4 @@ export const createUserService = async (
   );
   user.name = name;
   return await user.save();
-};
-
-export const findUserService = async (username: string, email: string) => {
-  const user: IUser | null = await User.findOne({
-    $or: [{ username: username }, { email: email }]
-  });
-  return user;
 };

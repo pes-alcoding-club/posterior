@@ -1,11 +1,7 @@
 import { Response, NextFunction } from 'express';
 import passport from 'passport';
 
-import {
-  getUserService,
-  findUserService,
-  createUserService
-} from '../services/auth.service';
+import { getUserService, createUserService } from '../services/auth.service';
 import { getToken } from '../utils/auth.util';
 
 import { IUser } from '../models/user.model';
@@ -60,19 +56,13 @@ export const loginUser = async (
 };
 
 export const registerUser = async (req: any, res: Response) => {
-  let user: IUser | null;
-
   try {
-    user = await findUserService(req.body.username, req.body.email);
-    if (user !== null)
-      return res.status(406).json({ status: 406, message: 'User exists!' });
-    user = await createUserService(
+    await createUserService(
       req.body.username,
       req.body.password,
       req.body.email,
       req.body.name
     );
-    user = await getUserService(user._id);
     passport.authenticate('local')(req, res, () =>
       res.status(200).json({ status: 200, message: 'Registration Successful' })
     );
