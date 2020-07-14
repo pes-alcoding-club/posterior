@@ -7,7 +7,9 @@ const JwtStrategy = passportJwt.Strategy;
 const ExtractJwt = passportJwt.ExtractJwt;
 
 import User from '../models/user.model';
+
 import config from '../config';
+
 import { NextFunction } from 'express';
 
 export const local = passport.use(new LocalStrategy(User.authenticate()));
