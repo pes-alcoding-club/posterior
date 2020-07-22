@@ -25,7 +25,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
-app.get('/swagger', swaggerui.serve, swaggerui.setup(swaggerSpec));
+app.use('/swagger', swaggerui.serve, swaggerui.setup(swaggerSpec));
 
 app.listen(config.PORT, (err: any) => {
 	if (err) {
