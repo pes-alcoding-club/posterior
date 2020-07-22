@@ -1,3 +1,4 @@
+ 
 export default {
 	secretKey: '<Your Secret Here>',
 	mongoUrl: '<Mongo URL>',
