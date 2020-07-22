@@ -1,4 +1,7 @@
 # Posterior
+
+![Lint Code Base](https://github.com/pes-alcoding-club/posterior/workflows/Lint%20Code%20Base/badge.svg)
+
 #### Backend for the Alcoding Web Portal
 
 
