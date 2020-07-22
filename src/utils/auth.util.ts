@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
-import config from '../config';
+import config from 'config';
+
+const authConfig : any = config.get('app.auth');
 
 export const getToken = function (user: any) {
-	return jwt.sign(user, config.secretKey, { expiresIn: 30 * 24 * 3600 }); // Expires in 30 days
+	return jwt.sign(user, authConfig.secretKey, { expiresIn: authConfig.tokenExpiry * 24 * 3600 });
 };

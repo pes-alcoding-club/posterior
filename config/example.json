@@ -1,0 +1,12 @@
+{
+	"app": {
+		"PORT": 4000,
+		"auth": {
+			"secretKey": "<Your Secret Here>",
+			"tokenExpiry": 1
+        }
+    },
+    "db": {
+        "mongoUrl": "mongodb://127.0.0.1:27017/posterior"
+    }
+}

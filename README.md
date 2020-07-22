@@ -15,7 +15,7 @@
 - Install dependencies: ``` npm install ```
 
 
-**Note:** Make sure to add a `config.js` file in the `src` folder. See the `config.example.js` under `src/` directory for more details.
+**Note:** Make sure to add a `default.json` file in the `config` folder. Refer to `config/example.json` for an example. For production, create a `production.json` and follow the same format.
 
 
 

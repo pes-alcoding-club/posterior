@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 import passport from 'passport';
 
-import config from './config';
+import config from 'config';
 
 import AuthRouter from './routers/auth.router';
 
@@ -12,18 +12,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
-app.listen(config.PORT, (err: any) => {
+const appConfig : any  = config.get('app');
+
+app.listen(appConfig.PORT, (err: any) => {
 	if (err) {
 		console.error(`Unable to start app. Found error: ${err.message}`);
 		return;
 	}
-	console.error(`Server Running at PORT: ${config.PORT}`);
+	console.error(`Server Running at PORT: ${appConfig.PORT}`);
 });
 
 app.use('/api/auth', AuthRouter);
 
+const dbConfig : any = config.get('db');
+
 mongoose.set('useCreateIndex', true);
-mongoose.connect(config.mongoUrl, {
+mongoose.connect(dbConfig.mongoUrl, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
