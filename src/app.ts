@@ -1,4 +1,4 @@
-import express, { Response, Application, NextFunction } from 'express';
+import express, { Response, Application} from 'express';
 import mongoose from 'mongoose';
 
 import passport from 'passport';
@@ -53,18 +53,6 @@ app.use(function (err: any, res: Response) {
 	res.end(err.message);
 });
 
-app.use(function (req: any, res: Response, next: NextFunction) {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header(
-		'Access-Control-Allow-Headers',
-		'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-	);
-	res.header(
-		'Access-Control-Allow-Methods',
-		'GET, POST, PUT, UPDATE, DELETE, OPTIONS'
-	);
-	res.header('Content-Type', 'application/json');
-	next();
-});
+
 
 module.exports = app;
