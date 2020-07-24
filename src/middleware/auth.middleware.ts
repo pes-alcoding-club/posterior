@@ -16,7 +16,7 @@ export const local = passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-const authConfig : any = config.get('app.auth');
+const authConfig: any = config.get('app.auth');
 
 const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

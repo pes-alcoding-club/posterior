@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
-const appConfig : any  = config.get('app');
+const appConfig: any = config.get('app');
 
 app.listen(appConfig.PORT, (err: any) => {
 	if (err) {
@@ -24,7 +24,7 @@ app.listen(appConfig.PORT, (err: any) => {
 
 app.use('/api/auth', AuthRouter);
 
-const dbConfig : any = config.get('db');
+const dbConfig: any = config.get('db');
 
 mongoose.set('useCreateIndex', true);
 mongoose.connect(dbConfig.mongoUrl, {

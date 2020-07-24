@@ -15,7 +15,7 @@
 - Install dependencies: ``` npm install ```
 
 
-**Note:** Make sure to add a `default.json` file in the `config` folder. Refer to `config/example.json` for an example. For production, create a `production.json` and follow the same format.
+**Note:** To Overide changes in `default.json`, create a file named `local.json` and add in the new changes here. For more info, refer [here.](https://github.com/lorenwest/node-config/wiki/Configuration-Files#config-directory)
 
 
 
