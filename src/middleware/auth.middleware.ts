@@ -8,7 +8,7 @@ const ExtractJwt = passportJwt.ExtractJwt;
 
 import User from '../models/user.model';
 
-import config from '../config';
+import config from 'config';
 
 import { NextFunction } from 'express';
 
@@ -16,9 +16,11 @@ export const local = passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+const authConfig: any = config.get('app.auth');
+
 const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: config.secretKey
+	secretOrKey: authConfig.secretKey
 };
 
 export const jwtPasport = passport.use(

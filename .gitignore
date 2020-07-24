@@ -42,7 +42,7 @@ node_modules/
 jspm_packages/
 
 # Configuration file
-src/config.ts
+config/local.json
 
 # TypeScript v1 declaration files
 typings/

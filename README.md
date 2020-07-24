@@ -15,7 +15,7 @@
 - Install dependencies: ``` npm install ```
 
 
-**Note:** Make sure to add a `config.js` file in the `src` folder. See the `config.example.js` under `src/` directory for more details.
+**Note:** To Overide changes in `default.json`, create a file named `local.json` and add in the new changes here. For more info, refer [here.](https://github.com/lorenwest/node-config/wiki/Configuration-Files#config-directory)
 
 
 
